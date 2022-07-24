@@ -15,6 +15,10 @@ const AmbientLightSensor = NativeModules.AmbientLightSensor  ? NativeModules.Amb
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return AmbientLightSensor.multiply(a, b);
+export function startLightSensor(): void {
+  return AmbientLightSensor.startLightSensor();
+}
+
+export function stopLightSensor(): void {
+  return AmbientLightSensor.stopLightSensor();
 }

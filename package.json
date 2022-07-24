@@ -33,7 +33,12 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "lightsensor",
+    "amibient_light",
+    "nativemodules",
+    "mobile",
+    "surroundinglight"
   ],
   "repository": "https://github.com/Cshayan/react-native-ambient-light-sensor",
   "author": "Shayan Chatterjee <shayanchatterjee7@gmail.com> (https://github.com/Cshayan)",

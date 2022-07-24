@@ -1,18 +1,30 @@
-import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-ambient-light-sensor';
+import React, { useEffect } from 'react';
+import { StyleSheet, View, Text, DeviceEventEmitter } from 'react-native';
+import { startLightSensor, stopLightSensor } from 'react-native-ambient-light-sensor';
+import { LIGHT_SENSOR } from 'example/constants/constants';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+  useEffect(() => {
+      startLightSensor();
+      
+      const subscription = DeviceEventEmitter.addListener(
+        LIGHT_SENSOR,
+        (data: { lightValue: number }) => {
+            setResult(data.lightValue);
+        },
+    );
+
+    return () => {
+        stopLightSensor();
+        subscription?.remove();
+    };
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Light Result Value: {result}</Text>
     </View>
   );
 }
