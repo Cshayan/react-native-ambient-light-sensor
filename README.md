@@ -64,6 +64,13 @@ The following example data set represents rough thresholds for common lighting c
 
 ##### Note: This data set is for illustration and may not be completely accurate for all users or situations.
 
+## Want to know more about its implementation
+
+Check out the article - https://medium.com/@shayanchatterjee7/creating-a-surrounding-light-sensor-module-for-android-device-in-react-native-6a0f9fa7d13e
+
+## NPM Package
+
+Checkout the npm package of it - https://www.npmjs.com/package/react-native-ambient-light-sensor
 
 ## Contributing
 
