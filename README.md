@@ -21,7 +21,7 @@ export default function App() {
       startLightSensor();
       
       const subscription = DeviceEventEmitter.addListener(
-        'LIGHT_SENSOR',
+        'LightSensor',
         (data: { lightValue: number }) => {
             setResult(data.lightValue);
         },
