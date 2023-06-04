@@ -62,6 +62,12 @@ public class AmbientLightSensorModule extends ReactContextBaseJavaModule impleme
     }
 
     @ReactMethod
+    public void hasLightSensor(Promise promise) {
+        boolean hasSensor = mSensorLight != null;
+        promise.resolve(hasSensor);
+    }
+
+    @ReactMethod
     public void startLightSensor() {
         if (mSensorLight == null) {
             return;

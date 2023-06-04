@@ -9,15 +9,17 @@ npm install react-native-ambient-light-sensor
 ## Usage
 
 ```js
-import { startLightSensor, stopLightSensor } from 'react-native-ambient-light-sensor';
+import { hasLightSensor, startLightSensor, stopLightSensor } from 'react-native-ambient-light-sensor';
 import { View, Text, DeviceEventEmitter } from 'react-native';
 
 // ...
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
+  const [hasSensor, setHasSensor] = React.useState<boolean>();
 
   useEffect(() => {
+      hasLightSensor().then(setHasSensor);
       startLightSensor();
       
       const subscription = DeviceEventEmitter.addListener(
@@ -35,7 +37,7 @@ export default function App() {
 
   return (
     <View>
-      <Text>Light Result Value: {result}</Text>
+      <Text>Device has sensor: {hasSensor ? 'YES' : 'NO'}. Light Result Value: {result}</Text>
     </View>
   );
 }

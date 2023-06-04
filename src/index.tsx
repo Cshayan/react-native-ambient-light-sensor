@@ -15,6 +15,10 @@ const AmbientLightSensor = NativeModules.AmbientLightSensor  ? NativeModules.Amb
       }
     );
 
+export async function hasLightSensor(): Promise<boolean> {
+  return AmbientLightSensor.hasLightSensor();
+}
+
 export function startLightSensor(): void {
   return AmbientLightSensor.startLightSensor();
 }
